@@ -14,7 +14,7 @@ class StorePurchaseTest extends TestCase
     {
         parent::__construct($name, $data, $dataName);
         $this->purchaseInfo = json_decode(
-            file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . '../Stubs/scenario.json'),
+            file_get_contents(__DIR__ . '/../Stubs/successful_scenario.json'),
             true
         );
     }

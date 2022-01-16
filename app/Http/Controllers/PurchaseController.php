@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Domains\Purchase\Actions\CreatePurchaseAction;
+use App\Domains\Purchase\Actions\GeneratePurchaseAction;
 use App\Domains\Purchase\Requests\PurchaseRequest;
+use App\Helpers\Scenario;
+use Illuminate\Http\JsonResponse;
 
 class PurchaseController extends Controller
 {
-    public function store(PurchaseRequest $request)
+    public function show(PurchaseRequest $request): JsonResponse
     {
-        $purchase = CreatePurchaseAction::execute($request->input('purchase'));
+        $scenario = Scenario::getScenario($request->input('scenario'));
+
+        $purchase = GeneratePurchaseAction::execute($scenario['purchase']);
 
         return response()->json([
             'total_price' => $purchase->getTotalPrice(),

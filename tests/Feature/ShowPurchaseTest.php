@@ -5,19 +5,16 @@ namespace Tests\Feature;
 use App\Constants\ElectronicTypes;
 use Tests\TestCase;
 
-class StorePurchaseTest extends TestCase
+class ShowPurchaseTest extends TestCase
 {
-    private const ROUTE = 'purchases.store';
-    private array $purchaseInfo;
+    private const ROUTE = 'purchases.show';
 
     /**
      * @test
      */
     public function itGetsCorrectResponseStructure(): void
     {
-        $this->readScenario('successful_scenario');
-
-        $response = $this->postJson(route(self::ROUTE), $this->purchaseInfo);
+        $response = $this->getJson(route(self::ROUTE, ['scenario' => 'default']));
 
         $response->assertJsonStructure([
             'total_price',
@@ -36,12 +33,10 @@ class StorePurchaseTest extends TestCase
      */
     public function itGetsTotalPricing(): void
     {
-        $this->readScenario('successful_scenario');
-
-        $response = $this->postJson(route(self::ROUTE), $this->purchaseInfo);
+        $response = $this->getJson(route(self::ROUTE, ['scenario' => 'default']));
 
         $response->assertJsonFragment([
-            'total_price' => 4061.25,
+            'total_price' => 4069.87,
         ]);
     }
 
@@ -50,9 +45,7 @@ class StorePurchaseTest extends TestCase
      */
     public function itGetsSortedItemsByPriceFromLowerToHighest(): void
     {
-        $this->readScenario('successful_scenario');
-
-        $response = $this->postJson(route(self::ROUTE), $this->purchaseInfo);
+        $response = $this->getJson(route(self::ROUTE, ['scenario' => 'default']));
 
         $response->assertJsonFragment([
             'items' => [
@@ -111,11 +104,10 @@ class StorePurchaseTest extends TestCase
      */
     public function itDoesNotInsertTooManyExtras(): void
     {
-        $this->readScenario('many_extras_scenario');
-
-        $response = $this->postJson(route(self::ROUTE), $this->purchaseInfo);
+        $response = $this->getJson(route(self::ROUTE, ['scenario' => 'many_extras']));
 
         $response->assertJsonFragment([
+            'total_price' => 4148.74,
             'items' => [
                 [
                     'type' => ElectronicTypes::ELECTRONIC_ITEM_MICROWAVE,
@@ -195,13 +187,5 @@ class StorePurchaseTest extends TestCase
                 ],
             ],
         ]);
-    }
-
-    private function readScenario(string $fileName): void
-    {
-        $this->purchaseInfo = json_decode(
-            file_get_contents(__DIR__ . '/../Stubs/' . $fileName . '.json'),
-            true
-        );
     }
 }

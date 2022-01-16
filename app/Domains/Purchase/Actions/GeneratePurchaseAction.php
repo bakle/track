@@ -6,7 +6,7 @@ use App\Domains\Purchase\Purchase;
 use App\Electronics\ElectronicItem;
 use App\Factories\ElectronicItemFactory;
 
-class CreatePurchaseAction
+class GeneratePurchaseAction
 {
     public static function execute(array $purchase): Purchase
     {

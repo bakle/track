@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('purchases', [PurchaseController::class, 'store'])->name('purchases.store');
+Route::get('purchases', [PurchaseController::class, 'show'])->name('purchases.show');

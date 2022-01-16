@@ -30,7 +30,7 @@
                 {
                     "name": "controller",
                     "qty": 2,
-                    "price": 10.99,
+                    "price": 15.30,
                     "attributes": {
                         "wired": false
                     }
@@ -44,7 +44,7 @@
                 {
                     "name": "controller",
                     "qty": 1,
-                    "price": 10.99,
+                    "price": 15.30,
                     "attributes": {
                         "wired": false
                     }

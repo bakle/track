@@ -13,6 +13,23 @@ abstract class ElectronicItem
 
     abstract public function getPrice(): float;
 
+    abstract protected function maxExtras(): ?int;
+
+    public function toArray(): array
+    {
+        $data = [
+            'type' => $this->type,
+            'price' => $this->price,
+            'is_wired' => $this->wired,
+        ];
+
+        if ($this->hasExtras()) {
+            $data['extras'] = $this->getExtras();
+        }
+
+        return $data;
+    }
+
     public function setAttributes(array $attributes): void
     {
         if (array_key_exists('wired', $attributes) && !is_null($attributes['wired'])) {
@@ -37,6 +54,10 @@ abstract class ElectronicItem
 
     public function setExtra(Extra $extra)
     {
+        if ($this->cannotHaveExtras()) {
+            return;
+        }
+
         $this->extras[] = $extra;
     }
 
@@ -60,18 +81,8 @@ abstract class ElectronicItem
         return !empty($this->extras);
     }
 
-    public function toArray(): array
+    private function cannotHaveExtras(): bool
     {
-        $data = [
-            'type' => $this->type,
-            'price' => $this->price,
-            'is_wired' => $this->wired,
-        ];
-
-        if ($this->hasExtras()) {
-            $data['extras'] = $this->getExtras();
-        }
-
-        return $data;
+        return is_null($this->maxExtras()) || ($this->maxExtras() >= 0 && count($this->extras) >= $this->maxExtras());
     }
 }

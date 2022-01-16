@@ -3,9 +3,12 @@
 namespace App\Electronics\Extras;
 
 use App\Constants\ElectronicTypes;
+use App\Traits\HasNullableExtras;
 
 class Controller extends Extra
 {
+    use HasNullableExtras;
+
     public function __construct()
     {
         $this->setType(ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER);

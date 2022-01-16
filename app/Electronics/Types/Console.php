@@ -27,4 +27,9 @@ class Console extends ElectronicItem
 
         return $item->getPrice();
     }
+
+    protected function maxExtras(): ?int
+    {
+        return 4;
+    }
 }

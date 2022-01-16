@@ -2,8 +2,6 @@
 
 namespace App\Electronics;
 
-use App\Constants\ElectronicTypes;
-
 class ElectronicItems
 {
     private array $items = [];
@@ -31,21 +29,15 @@ class ElectronicItems
         return array_values($sorted);
     }
 
-    /**
-     * @param string $type
-     * @return array
-     */
-    public function getItemsByType(string $type): array
+    public function getItemsByType(?string $type = null): array
     {
-        if (!ElectronicTypes::typeExists($type)) {
-            return [];
+        if (is_null($type)) {
+            return $this->getSortedItems();
         }
 
-        $callback = function ($item) use ($type) {
-            return $item->getType() == $type;
-        };
-
-        return array_filter($this->items, $callback);
+        return array_values(
+            array_filter($this->getSortedItems(), fn ($item) => $item->getType() == $type)
+        );
     }
 
     public function getItems(): array

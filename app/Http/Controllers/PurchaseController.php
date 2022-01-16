@@ -15,9 +15,11 @@ class PurchaseController extends Controller
 
         $purchase = GeneratePurchaseAction::execute($scenario['purchase']);
 
+        $items = $purchase->filterByType($request->input('filter.type'));
+
         return response()->json([
             'total_price' => $purchase->getTotalPrice(),
-            'items' => $purchase->getItems(),
+            'items' => $items,
         ]);
     }
 }

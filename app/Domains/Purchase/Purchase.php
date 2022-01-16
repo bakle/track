@@ -12,23 +12,33 @@ class Purchase
     public function __construct(array $items)
     {
         $this->electronicItems = new ElectronicItems($items);
-        $this->setTotalPrice();
     }
 
-    public function getItems(): array
+    public function getItems(string $type = null): array
     {
-        return array_map(fn ($item) => $item->toArray(), $this->electronicItems->getSortedItems());
+        $items = $this->electronicItems->getItemsByType($type);
+
+        $this->refreshFilteredItems($items);
+
+        return array_map(fn ($item) => $item->toArray(), $items);
     }
 
     public function getTotalPrice(): float
     {
-        return $this->totalPrice;
-    }
-
-    private function setTotalPrice(): void
-    {
         foreach ($this->electronicItems->getItems() as $item) {
             $this->totalPrice += $item->getTotalPrice();
         }
+
+        return $this->totalPrice;
+    }
+
+    public function filterByType(string $type = null): array
+    {
+        return $this->getItems($type);
+    }
+
+    private function refreshFilteredItems(array $items)
+    {
+        $this->electronicItems = new ElectronicItems($items);
     }
 }

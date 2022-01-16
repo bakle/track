@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use App\Constants\ElectronicTypes;
 use Tests\TestCase;
 
-class ShowPurchaseTest extends TestCase
+class ShowAllPurchaseTest extends TestCase
 {
     private const ROUTE = 'purchases.show';
 
@@ -47,7 +47,8 @@ class ShowPurchaseTest extends TestCase
     {
         $response = $this->getJson(route(self::ROUTE, ['scenario' => 'default']));
 
-        $response->assertJsonFragment([
+        $response->assertExactJson([
+            'total_price' => 4069.87,
             'items' => [
                 [
                     'type' => ElectronicTypes::ELECTRONIC_ITEM_MICROWAVE,
@@ -106,7 +107,7 @@ class ShowPurchaseTest extends TestCase
     {
         $response = $this->getJson(route(self::ROUTE, ['scenario' => 'many_extras']));
 
-        $response->assertJsonFragment([
+        $response->assertExactJson([
             'total_price' => 4148.74,
             'items' => [
                 [

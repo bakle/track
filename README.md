@@ -38,8 +38,6 @@ Scenarios are different purchase cases.
 * The ``default.json`` scenario is the one given in the test.
 * The ``many_extras.json`` scenario test the ``maxExtras`` feature.
 
-The other scenario is a bad-formed purchase structure to validate some
-
 ### Unit tests
 There is a unit test called ``ValidatorTest.php`` that validates the json scenario format.
 

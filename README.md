@@ -10,7 +10,7 @@
 ### Cloning the repository
 
 ```bash
-git clone https://github.com/bakle/track.git  
+git clone git@github.com:bakle/track.git
 ```
 
 ### Installing the project 

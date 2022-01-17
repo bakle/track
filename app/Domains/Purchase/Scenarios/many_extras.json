@@ -1,0 +1,148 @@
+{
+    "purchase": [
+        {
+            "name": "console",
+            "price": 540.99,
+            "extras": [
+                {
+                    "name": "controller",
+                    "qty": 2,
+                    "price": 10.99,
+                    "attributes": {
+                        "wired": true
+                    }
+                },
+                {
+                    "name": "controller",
+
+                    "qty": 2,
+                    "price": 15.30,
+                    "attributes": {
+                        "wired": false
+                    }
+                },
+                {
+                    "name": "controller",
+                    "qty": 2,
+                    "price": 10.99,
+                    "attributes": {
+                        "wired": true
+                    }
+                },
+                {
+                    "name": "controller",
+
+                    "qty": 2,
+                    "price": 15.30,
+                    "attributes": {
+                        "wired": false
+                    }
+                },
+                {
+                    "name": "controller",
+                    "qty": 2,
+                    "price": 10.99,
+                    "attributes": {
+                        "wired": true
+                    }
+                },
+                {
+                    "name": "controller",
+
+                    "qty": 2,
+                    "price": 15.30,
+                    "attributes": {
+                        "wired": false
+                    }
+                }
+            ]
+        },
+        {
+            "name": "television",
+            "price": 980.99,
+            "extras": [
+                {
+                    "name": "controller",
+                    "qty": 2,
+                    "price": 15.30,
+                    "attributes": {
+                        "wired": false
+                    }
+                },
+                {
+                    "name": "controller",
+                    "qty": 2,
+                    "price": 10.99,
+                    "attributes": {
+                        "wired": true
+                    }
+                },
+                {
+                    "name": "controller",
+
+                    "qty": 2,
+                    "price": 15.30,
+                    "attributes": {
+                        "wired": false
+                    }
+                }
+            ]
+        },
+        {
+            "name": "television",
+            "price": 2140.50,
+            "extras": [
+                {
+                    "name": "controller",
+                    "qty": 1,
+                    "price": 15.30,
+                    "attributes": {
+                        "wired": false
+                    }
+                },
+                {
+                    "name": "controller",
+                    "qty": 2,
+                    "price": 10.99,
+                    "attributes": {
+                        "wired": true
+                    }
+                },
+                {
+                    "name": "controller",
+
+                    "qty": 2,
+                    "price": 15.30,
+                    "attributes": {
+                        "wired": false
+                    }
+                }
+            ]
+        },
+        {
+            "name": "microwave",
+            "price": 350.50,
+            "extras": [
+                {
+                    "name": "controller",
+                    "qty": 2,
+                    "price": 10.99,
+                    "attributes": {
+                        "wired": true
+                    }
+                },
+                {
+                    "name": "controller",
+
+                    "qty": 2,
+                    "price": 15.30,
+                    "attributes": {
+                        "wired": false
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+

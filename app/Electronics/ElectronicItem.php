@@ -52,7 +52,7 @@ abstract class ElectronicItem
         $this->price = $price;
     }
 
-    public function setExtra(Extra $extra)
+    public function setExtra(Extra $extra): void
     {
         if ($this->cannotHaveExtras()) {
             return;

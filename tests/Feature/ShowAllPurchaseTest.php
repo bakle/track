@@ -36,7 +36,7 @@ class ShowAllPurchaseTest extends TestCase
         $response = $this->getJson(route(self::ROUTE, ['scenario' => 'default']));
 
         $response->assertJsonFragment([
-            'total_price' => 4069.87,
+            'total_price' => 4096.16,
         ]);
     }
 
@@ -48,7 +48,7 @@ class ShowAllPurchaseTest extends TestCase
         $response = $this->getJson(route(self::ROUTE, ['scenario' => 'default']));
 
         $response->assertExactJson([
-            'total_price' => 4069.87,
+            'total_price' => 4096.16,
             'items' => [
                 [
                     'type' => ElectronicTypes::ELECTRONIC_ITEM_MICROWAVE,
@@ -64,6 +64,16 @@ class ShowAllPurchaseTest extends TestCase
                             'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
                             'price' => 10.99,
                             'is_wired' => true,
+                        ],
+                        [
+                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
+                            'price' => 10.99,
+                            'is_wired' => true,
+                        ],
+                        [
+                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
+                            'price' => 15.3,
+                            'is_wired' => false,
                         ],
                         [
                             'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,

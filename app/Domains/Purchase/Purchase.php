@@ -14,7 +14,7 @@ class Purchase
         $this->electronicItems = new ElectronicItems($items);
     }
 
-    public function getItems(string $type = null): array
+    public function getItems(?string $type = null): array
     {
         $items = $this->electronicItems->getItemsByType($type);
 
@@ -29,15 +29,10 @@ class Purchase
             $this->totalPrice += $item->getTotalPrice();
         }
 
-        return $this->totalPrice;
+        return round($this->totalPrice, 2);
     }
 
-    public function filterByType(string $type = null): array
-    {
-        return $this->getItems($type);
-    }
-
-    private function refreshFilteredItems(array $items)
+    private function refreshFilteredItems(array $items): void
     {
         $this->electronicItems = new ElectronicItems($items);
     }

@@ -6,7 +6,6 @@
             "extras": [
                 {
                     "name": "controller",
-                    "qty": 2,
                     "price": 10.99,
                     "attributes": {
                         "wired": true
@@ -14,8 +13,20 @@
                 },
                 {
                     "name": "controller",
-
-                    "qty": 2,
+                    "price": 10.99,
+                    "attributes": {
+                        "wired": true
+                    }
+                },
+                {
+                    "name": "controller",
+                    "price": 15.30,
+                    "attributes": {
+                        "wired": false
+                    }
+                },
+                {
+                    "name": "controller",
                     "price": 15.30,
                     "attributes": {
                         "wired": false

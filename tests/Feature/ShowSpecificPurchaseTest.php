@@ -44,7 +44,7 @@ class ShowSpecificPurchaseTest extends TestCase
         ));
 
         $response->assertExactJson([
-            'total_price' => 567.28,
+            'total_price' => 593.57,
             'items' => [
                 [
                     'type' => ElectronicTypes::ELECTRONIC_ITEM_CONSOLE,
@@ -58,12 +58,40 @@ class ShowSpecificPurchaseTest extends TestCase
                         ],
                         [
                             'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
+                            'price' => 10.99,
+                            'is_wired' => true,
+                        ],
+                        [
+                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
+                            'price' => 15.3,
+                            'is_wired' => false,
+                        ],
+                        [
+                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
                             'price' => 15.3,
                             'is_wired' => false,
                         ],
                     ],
                 ],
             ],
+        ]);
+    }
+
+    public function itDoesNotGetSpecificItemWithWrongType()
+    {
+        $response = $this->getJson(route(
+            self::ROUTE,
+            [
+                'scenario' => 'default',
+                'filter' => [
+                    'type' => 'test',
+                ],
+            ]
+        ));
+
+        $response->assertExactJson([
+            'total_price' => 0,
+            'items' => [],
         ]);
     }
 }

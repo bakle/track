@@ -17,11 +17,9 @@ class ValidatorTest extends TestCase
      */
     public function itValidatesCorrectlyEachField($data, $field)
     {
-        //dump($data);
         try {
             PurchaseValidator::validate($data);
         } catch (ValidationException $exception) {
-            dump($exception->errors());
             $expectedField = array_key_first($exception->errors());
             $this->assertEquals($expectedField, $field);
         }

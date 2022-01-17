@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('purchases', [PurchaseController::class, 'show'])->name('purchases.show');
+Route::get('purchases/{scenario}', [PurchaseController::class, 'show'])->name('purchases.show');

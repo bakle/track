@@ -19,6 +19,24 @@ git clone git@github.com:bakle/track.git
 composer install
 ```
 
+# Routes
+
+### Purchase Detail
+```bash
+GET purchases/   
+```
+
+### Request Info
+To try the 2 different scenarios you must pass the ``scenario`` param in the route.
+
+```bash
+GET purchases/default
+
+// OR
+
+GET purchases/many_extras
+```
+
 # Answers to questions
 
 ### Question 1

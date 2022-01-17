@@ -4,9 +4,12 @@ namespace Tests\Feature;
 
 use App\Constants\ElectronicTypes;
 use Tests\TestCase;
+use Tests\Traits\HasPurchaseStructure;
 
 class ShowAllPurchaseTest extends TestCase
 {
+    use HasPurchaseStructure;
+
     private const ROUTE = 'purchases.show';
 
     /**
@@ -60,26 +63,10 @@ class ShowAllPurchaseTest extends TestCase
                     'price' => 540.99,
                     'is_wired' => false,
                     'extras' => [
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 10.99,
-                            'is_wired' => true,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 10.99,
-                            'is_wired' => true,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.3,
-                            'is_wired' => false,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.3,
-                            'is_wired' => false,
-                        ],
+                        $this->getWiredController(),
+                        $this->getWiredController(),
+                        $this->getRemoteController(),
+                        $this->getRemoteController(),
                     ],
                 ],
                 [
@@ -87,16 +74,8 @@ class ShowAllPurchaseTest extends TestCase
                     'price' => 980.99,
                     'is_wired' => false,
                     'extras' => [
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.30,
-                            'is_wired' => false,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.30,
-                            'is_wired' => false,
-                        ],
+                        $this->getRemoteController(),
+                        $this->getRemoteController(),
                     ],
                 ],
                 [
@@ -104,11 +83,7 @@ class ShowAllPurchaseTest extends TestCase
                     'price' => 2140.5,
                     'is_wired' => false,
                     'extras' => [
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.30,
-                            'is_wired' => false,
-                        ],
+                        $this->getRemoteController(),
                     ],
                 ],
             ],
@@ -135,26 +110,10 @@ class ShowAllPurchaseTest extends TestCase
                     'price' => 540.99,
                     'is_wired' => false,
                     'extras' => [
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 10.99,
-                            'is_wired' => true,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.3,
-                            'is_wired' => false,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 10.99,
-                            'is_wired' => true,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.3,
-                            'is_wired' => false,
-                        ],
+                        $this->getWiredController(),
+                        $this->getRemoteController(),
+                        $this->getWiredController(),
+                        $this->getRemoteController(),
                     ],
                 ],
                 [
@@ -162,21 +121,9 @@ class ShowAllPurchaseTest extends TestCase
                     'price' => 980.99,
                     'is_wired' => false,
                     'extras' => [
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.3,
-                            'is_wired' => false,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 10.99,
-                            'is_wired' => true,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.3,
-                            'is_wired' => false,
-                        ],
+                        $this->getRemoteController(),
+                        $this->getWiredController(),
+                        $this->getRemoteController(),
                     ],
                 ],
                 [
@@ -184,21 +131,9 @@ class ShowAllPurchaseTest extends TestCase
                     'price' => 2140.5,
                     'is_wired' => false,
                     'extras' => [
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.3,
-                            'is_wired' => false,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 10.99,
-                            'is_wired' => true,
-                        ],
-                        [
-                            'type' => ElectronicTypes::ELECTRONIC_ITEM_CONTROLLER,
-                            'price' => 15.3,
-                            'is_wired' => false,
-                        ],
+                        $this->getRemoteController(),
+                        $this->getWiredController(),
+                        $this->getRemoteController(),
                     ],
                 ],
             ],

@@ -23,6 +23,16 @@ trait WrongPurchaseDataProvider
                 ]),
                 'purchase.0.name',
             ],
+            'not available name (electronic type' => [
+                array_replace_recursive($this->data(), [
+                    'purchase' => [
+                        [
+                            'name' => 'testing',
+                        ],
+                    ],
+                ]),
+                'purchase.0.name',
+            ],
             'empty price' => [
                 array_replace_recursive($this->data(), [
                     'purchase' => [
@@ -70,6 +80,20 @@ trait WrongPurchaseDataProvider
                             'extras' => [
                                 [
                                     'name' => '',
+                                ],
+                            ],
+                        ],
+                    ],
+                ]),
+                'purchase.0.extras.0.name',
+            ],
+            'not available extra name (electronic type)' => [
+                array_replace_recursive($this->data(), [
+                    'purchase' => [
+                        [
+                            'extras' => [
+                                [
+                                    'name' => 'testing',
                                 ],
                             ],
                         ],

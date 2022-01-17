@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
 {
-    public function show(Request $request): JsonResponse
+    public function show(Request $request, string $scenario): JsonResponse
     {
-        $scenario = Scenario::getScenario($request->input('scenario'));
+        $scenario = Scenario::getScenario($scenario);
 
         PurchaseValidator::validate($scenario);
 
